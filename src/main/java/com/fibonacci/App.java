@@ -1,10 +1,6 @@
 package com.fibonacci;
 import java.util.Scanner;
 
-/**
- * Hello world!
- *
- */
 public class App {
     public static void main(String[] args) {
                 System.out.println("How many numbers would you like to calculate? Please input 45 or less for now, or simply type -1 to leave.");
@@ -15,7 +11,7 @@ public class App {
                 String userChoice = userInput.nextLine();
                 
                 try{
-                    userChoiceInt = Integer.parseInt(userChoice);
+                    userChoiceInt = Integer.parseInt(userChoice);   //converting the user input into a int if it fails it asks again
                     if(userChoiceInt == -1){
                         System.exit(0);
                     }
@@ -29,9 +25,9 @@ public class App {
                 for(int i =0 ; i<4; i++){
                     System.out.print(".");
                 }
-        CharCreator ex = new CharCreator(userChoiceInt,true);
+        CharCreator ex = new CharCreator(userChoiceInt,true);   //create the first chart
             ex.setVisible(true);
-        CharCreator ex2 = new CharCreator(userChoiceInt, false);
+        CharCreator ex2 = new CharCreator(userChoiceInt, false); //create the second chart
             ex2.setVisible(true);
       }
 
