@@ -29,7 +29,7 @@ public class CharCreator extends JFrame{
         this.howMany = howMany;
     }
 
-    public CharCreator(int howMany, boolean first) {
+    public CharCreator(int howMany, boolean first) {        //used to pass through how far in the fib. sequence we should graph
         this.setHowMany(howMany);
         if(first){
             initUI(first);
@@ -43,7 +43,7 @@ public class CharCreator extends JFrame{
 
     public void initUI(boolean first) {
 
-        if(first){
+        if(first){      //used to create the first graph
             XYDataset dataset = createDataset(); 
             JFreeChart chart = createChart(dataset);
             ChartPanel chartPanel = new ChartPanel(chart);
@@ -57,7 +57,7 @@ public class CharCreator extends JFrame{
            System.out.println("\nAlmost done!");
         }
         
-        if(!first){
+        if(!first){         //used to create the second graph
             XYDataset secondDataSet = secondDataset();
             JFreeChart secondChart = createChart(secondDataSet);
             ChartPanel chartPanel2 = new ChartPanel(secondChart);
@@ -74,7 +74,7 @@ public class CharCreator extends JFrame{
 
         
     }
-    public XYDataset secondDataset(){
+    public XYDataset secondDataset(){        //used to calculate all of the numbers for the graph and store them in a XYSeries
         XYSeries recursive = new XYSeries("Recursive"); 
         long[] temp = new long[getHowMany()];
         double[] timeTable = new double[getHowMany()];
@@ -93,7 +93,7 @@ public class CharCreator extends JFrame{
         secondDataSet.addSeries(recursive);
         return secondDataSet;
     }
-    public XYDataset createDataset() {
+    public XYDataset createDataset() {                  //Same as above however this one is for the Iterative method
         XYSeries series = new XYSeries("Iterative");
         long[] temp = new long[getHowMany()];
         double[] timeTable = new double[getHowMany()];
@@ -114,7 +114,7 @@ public class CharCreator extends JFrame{
         return dataset;
     }
 
-    public JFreeChart createChart(XYDataset dataset) {
+    public JFreeChart createChart(XYDataset dataset) {      //used to create the chart and its style
 
         JFreeChart chart = ChartFactory.createXYLineChart(
                 "Time to Calculate Fibonacci Function",
